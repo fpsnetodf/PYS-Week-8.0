@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+}
+
+.bi-person-circle{
+    color: blueviolet;
+    font-size: 50px;
+    text-align: center;
+}
+
+.card-header{
+    color:blueviolet;
+    font-size: 45px;
+}
+.mc{
+    color: blueviolet;
+    font-size: 30px;
+}
+.bi-chat-quote{    
+    color: blueviolet;
+    font-size: 20px;
+}
+.placeholder{
+    color: black;
+}
+
+.bi-4-square{
+    color: rgb(232, 232, 12);
+}
+
+.bi-bicycle{
+    color:beige;
+}
+
+.btn-success{
+    background-color: rgb(133, 103, 161);
+    justify-content: center;
+}

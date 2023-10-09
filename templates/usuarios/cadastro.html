@@ -1,0 +1,83 @@
+{% extends "usuarios/base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link href="{% static '/css/estilo.css' %}" rel="stylesheet">  
+{% endblock 'head' %}
+
+{% block 'conteudo' %}
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }} | {{ message.tags }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </div>          
+        {% endfor %}
+    {% endif %}
+        </div>
+    </div>
+    <h3 class="font-destaque">Cadastre-se</h3>
+    {% comment %} Mensagens de Erro {% endcomment %}
+    
+<div class="row">
+<div class="col-md-2" style="text-align: center">
+    <img src="{% static 'img/logo.png' %}" alt="">
+    <h3>VitaLab</h3>
+</div>
+<div class="col-md-8">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="col-md-10">
+            <label class="form-label">Primeiro nome</label>
+            <br>
+            {% if get %}
+            <p>Chegou pelo metodo GET: {{ get }}</p>
+            {% endif %}
+            {% for x in list %}
+            <p>{{ x }}</p>
+            {% endfor %}
+            <input type="text" class="form-control w-100 w-lg-75" name="primeiro_nome">
+            <label class="form-label">Último nome</label>
+            <br>
+            <input type="text" class="form-control w-100 w-lg-75" name="ultimo_nome">
+        </div>
+    <br>
+    <br>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="m-1">
+                <label class="form-label">Username</label>            
+                <input type="text" class="form-control w100" name="username">
+            </div>
+        
+            <div class="m-1">    
+                <label class="form-label">Senha</label>    
+                <input type="password" class="form-control w100" name="senha">
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="m-1">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control w100" name="email">    
+            </div>
+            <div class="m-1">
+                <label class="form-label">Confirmar senha</label>    
+                <input type="password" class="form-control w100" name="confirmar_senha">
+            </div>            
+        </div>
+    
+        <div class="col-md-9 mt-2">
+            <input type="submit" class="btn-default">
+        </div>
+    </div>
+</form>
+{% endblock %}
