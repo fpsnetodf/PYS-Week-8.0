@@ -1,0 +1,72 @@
+{% extends "modelo.html" %}
+{% load static %}
+
+{% block title %}Pagina de cadastro{% endblock title %}
+
+{% block conteudo %}
+    <div class="container text-light" style="background-color:#6c25be;">
+        {% if messages %}
+        
+            {% for message in messages %}
+            <div class="card border-{{message.tags}} mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-{{message.tags}}"></div>
+                <div class="card-body text-{{message.tags}}">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text">{{message}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success">Footer</div>
+              </div>
+            {% endfor %}
+        {% endif %}
+        <h3 class="display-3 ">Cadastre-se</h3>
+        <div class="row">
+            <div class="col-md-3" style="text-align: center">
+                <img src="{% static "img/logo.png" %}" alt="">
+                <h3>VitaLab</h3>
+            </div>
+        <div class="col-md-8">
+            <form action="" method="POST">
+                {% csrf_token %}
+                    <div class="form-floating my-2 me-4 me-md-1">
+                        <input type="text" class="form-control me-auto" name="primeiro_nome" placeholder="">
+                        <label class="form-label text-dark">Primeiro nome</label>
+                    </div>
+                    <div class="form-floating my-2 me-4 me-md-1">
+                        <input type="text" class="form-control" name="ultimo_nome" placeholder=" ">
+                        <label class="form-label text-dark">Último nome</label>        
+                    </div>
+                </div>
+            <div class="row ms-md-4">
+                <div class="col-md-4 ">
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control" name="username" placeholder=" ">    
+                        <label class="form-label text-dark">Username</label>    
+                    </div>
+
+                    <div class="form-floating my2">
+                        <input type="text" class="form-control" name="senha" placeholder=" ">
+                        <label class="form-label text-dark">Senha</label>
+                    </div>
+                </div>
+            <div class="col-md-7">
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control" name="email" placeholder="">       
+                    <label class="form-label text-dark">E-mail</label>        
+                </div>
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control" name="confirmar_senha" placeholder="">
+                    <label class="form-label text-dark">Confirmar senha</label>
+                </div>
+            </div>
+                <div class="row d-flex justify-content-center my-3">
+                    <div class="col col-md-6 ">
+                        <input type="submit" class="btn btn-success">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock conteudo %}
+<div class="my-5">
+    {% block footer %}Meu footer{% endblock footer %}
+</div>
