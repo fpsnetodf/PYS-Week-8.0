@@ -32,8 +32,7 @@
     <td>
         <select class="form-select">
         {% for exame in pedidos.exames.all %}
-        <option style="color: black"
-        value="">{{exame.exame.nome}}</option>
+        <option value="">{{exame.exame.nome}}</option>
         {% endfor %}
     </select>   
     </td>
