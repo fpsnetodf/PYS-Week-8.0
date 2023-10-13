@@ -1,0 +1,50 @@
+{% extends "modelo.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/estilo.css" %}">
+{% endblock head %}
+
+{% block conteudo %}
+<br>
+<br>
+<div class="container">
+{% if messages %}
+<br>
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %}
+{% endif %}
+<div class="card py-5 bg-dark text-light">
+<table>
+<tr >
+    <th>Solicitação</th>
+    <th></th>
+    <th>Data</th>
+    <th>Exames</th>
+    <th>Ação</th>
+</tr>
+{% for pedidos in pedidos_exames %}
+<tr class="linha-tabela">
+    <td id="meu_id" >Nº<span class="ms-4">{{pedidos.id}}</span></td>
+    <td>{{exame.exame.nome}}</td>
+    <td>{{pedidos.data}}</td>
+    <td>
+        <select class="form-select">
+        {% for exame in pedidos.exames.all %}
+        <option style="color: black"
+        value="">{{exame.exame.nome}}</option>
+        {% endfor %}
+    </select>   
+    </td>
+    <td>
+        <a href="{% url "cancelar_pedido" pedidos.id %}"
+        class="btn btn-danger {% if not pedidos.agendado %} disabled {% endif %}">Cancelar</a>
+    </td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock conteudo %}
+{% block footer %}nda aqui{% endblock footer %}

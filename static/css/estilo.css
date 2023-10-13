@@ -1,3 +1,16 @@
 body{
     background-color: #e3b6d6;
 }
+.card{
+    background: #4aae2c;
+    margin-left: 30px;
+    
+}
+
+th{
+    
+    color:red;
+}
+#meu_id{
+    color: #4aae2c;
+}
